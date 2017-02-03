@@ -33,6 +33,8 @@
     case microsoftPinnedSite
     /// An icon defined in a Web Application Manifest JSON file, mainly Android/Chrome.
     case webAppManifest
+    /// A website image that is used for Facebook display purposes
+    case FBImage
 }
 
 /// Represents a detected icon.

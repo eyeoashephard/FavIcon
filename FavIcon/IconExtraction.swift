@@ -34,6 +34,11 @@ private let kMicrosoftSizeMap: [String: IconSize] = [
     "msapplication-square310x310logo": IconSize(width: 310, height: 310),
 ]
 
+private let siteImage: [String: IconSize] = [
+  "og:image": IconSize(width: 450, height: 450),
+  "twitter:image": IconSize(width: 400, height: 400)
+]
+
 /// Extracts a list of icons from the `<head>` section of an HTML document.
 ///
 /// - parameter document: An HTML document to process.
@@ -98,7 +103,16 @@ func extractHTMLHeadIcons(_ document: HTMLDocument, baseURL: URL) -> [DetectedIc
                                       type: .microsoftPinnedSite,
                                       width: size.width,
                                       height: size.height))
-        }
+        } else if
+          let property = meta.attributes["property"]?.lowercased(),
+          let content = meta.attributes["content"],
+          let url = URL(string: content, relativeTo: baseURL),
+          let size = siteImage[property] {
+            icons.append(DetectedIcon(url: url,
+                                      type: .FBImage,
+                                      width: size.width,
+                                      height: size.height))
+      }
     }
 
     return icons

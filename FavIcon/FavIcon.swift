@@ -131,8 +131,18 @@ public enum IconDownloadResult {
                 }
             }
         }
+      
+        let touchIconURL = URL(string: "/apple-touch-icon.png", relativeTo: url as URL)!.absoluteURL
+        let checkTouchIconOperation = CheckURLExistsOperation(url: touchIconURL, session: urlSession)
+        let checkTouchIcon = urlRequestOperation(checkTouchIconOperation) { result in
+          if case let .success(actualURL) = result {
+            queue.sync {
+              icons.append(DetectedIcon(url: actualURL, type: .appleIOSWebClip))
+            }
+          }
+        }
 
-        executeURLOperations([downloadHTML, checkFavIcon]) {
+        executeURLOperations([downloadHTML, checkFavIcon, checkTouchIcon]) {
             if additionalDownloads.count > 0 {
                 executeURLOperations(additionalDownloads) {
                     DispatchQueue.main.async {
