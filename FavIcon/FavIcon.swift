@@ -203,7 +203,7 @@ public enum IconDownloadResult {
     @objc public static func downloadPreferred(_ url: URL,
                                          width: Int,
                                          height: Int,
-                                         completion: @escaping (ImageType) -> Void) throws {
+                                         completion: @escaping (ImageType) -> Void) {
         scan(url) { icons in
             guard let icon = chooseIcon(icons, width: width, height: height) else {
                 DispatchQueue.main.async {
@@ -257,14 +257,15 @@ public enum IconDownloadResult {
     /// - returns: The chosen icon, or `nil`, if `icons` is empty.
     static func chooseIcon(_ icons: [DetectedIcon], width: Int? = nil, height: Int? = nil) -> DetectedIcon? {
         guard icons.count > 0 else { return nil }
-
+      
         let iconsInPreferredOrder = icons.sorted { left, right in
-            if let preferredWidth = width, let preferredHeight = height,
-               let widthLeft = left.width, let heightLeft = left.height,
-               let widthRight = right.width, let heightRight = right.height {
+            if width! > 0 || height! > 0  {
+                let preferredWidth = width, preferredHeight = height,
+                widthLeft = left.width, heightLeft = left.height,
+                widthRight = right.width, heightRight = right.height;
                 // Which is closest to preferred size?
-                let deltaA = abs(widthLeft - preferredWidth) * abs(heightLeft - preferredHeight)
-                let deltaB = abs(widthRight - preferredWidth) * abs(heightRight - preferredHeight)
+                let deltaA = abs(widthLeft! - preferredWidth!) * abs(heightLeft! - preferredHeight!)
+                let deltaB = abs(widthRight! - preferredWidth!) * abs(heightRight! - preferredHeight!)
                 return deltaA < deltaB
             } else {
                 if let areaLeft = left.area, let areaRight = right.area {
@@ -313,7 +314,7 @@ extension FavIcon {
     /// - parameter completion: A closure to call when the scan has completed. The closure will be called
     ///                         on the main queue.
     /// - throws: An `IconError` if the scan failed for some reason.
-    public static func scan(_ url: String, completion: @escaping ([DetectedIcon]) -> Void) throws {
+    @objc public static func scan(_ url: String, completion: @escaping ([DetectedIcon]) -> Void) throws {
         guard let url = URL(string: url) else { throw IconError.invalidBaseURL }
         scan(url, completion: completion)
     }
@@ -325,7 +326,7 @@ extension FavIcon {
     /// - parameter completion: A closure to call when all download tasks have results available
     ///                         (successful or otherwise). The closure will be called on the main queue.
     /// - throws: An `IconError` if the scan or download failed for some reason.
-    public static func downloadAll(_ url: String, completion: @escaping ([ImageType]) -> Void) throws {
+    @objc public static func downloadAll(_ url: String, completion: @escaping ([ImageType]) -> Void) throws {
         guard let url = URL(string: url) else { throw IconError.invalidBaseURL }
         downloadAll(url, completion: completion)
     }
@@ -339,12 +340,12 @@ extension FavIcon {
     /// - parameter completion: A closure to call when the download task has produced a result. The closure will
     ///                         be called on the main queue.
     /// - throws: An appropriate `IconError` if downloading failed for some reason.
-    public static func downloadPreferred(_ url: String,
-                                         width: Int? = nil,
-                                         height: Int? = nil,
+    @objc public static func downloadPreferred(_ url: String,
+                                         width: Int,
+                                         height: Int,
                                          completion: @escaping (ImageType) -> Void) throws {
         guard let url = URL(string: url) else { throw IconError.invalidBaseURL }
-        try downloadPreferred(url, width: width!, height: height!, completion: completion)
+        try downloadPreferred(url, width: width, height: height, completion: completion)
     }
 }
 
@@ -357,3 +358,4 @@ extension DetectedIcon {
         return nil
     }
 }
+
