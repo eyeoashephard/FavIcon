@@ -16,7 +16,7 @@
 //
 
 /// Enumerates the types of detected icons.
-public enum DetectedIconType: UInt {
+@objc public enum DetectedIconType: UInt {
     /// A shortcut icon.
     case shortcut
     /// A classic icon (usually in the range 16x16 to 48x48).
@@ -36,7 +36,7 @@ public enum DetectedIconType: UInt {
 }
 
 /// Represents a detected icon.
-public struct DetectedIcon {
+@objc public class DetectedIcon : NSObject {
     /// The absolute URL for the icon file.
     public let url: URL
     /// The type of the icon.

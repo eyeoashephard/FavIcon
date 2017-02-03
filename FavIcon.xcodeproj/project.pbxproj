@@ -51,7 +51,6 @@
 		2EA1B2201C3B73D600478E37 /* XMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E67AB3D1BE0DC5B003EF0A3 /* XMLDocument.m */; };
 		2EA1B2221C3B73D700478E37 /* HTMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E87456B1BE0CB13008E23AC /* HTMLDocument.m */; };
 		2EA1B2241C3B73D700478E37 /* XMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E67AB3D1BE0DC5B003EF0A3 /* XMLDocument.m */; };
-		BEF0B3AB1E44175300D0DCC4 /* FavIcon-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = BEF0B3AA1E44175300D0DCC4 /* FavIcon-Bridging-Header.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,8 +145,7 @@
 		2E87456A1BE0CB13008E23AC /* HTMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLDocument.h; sourceTree = "<group>"; };
 		2E87456B1BE0CB13008E23AC /* HTMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLDocument.m; sourceTree = "<group>"; };
 		2EDA8AB51BE1E6510043F0F2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		2EDF3FA91BE09DA100444B21 /* Walkthrough.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Walkthrough.playground; sourceTree = "<group>"; };
-		BEF0B3AA1E44175300D0DCC4 /* FavIcon-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FavIcon-Bridging-Header.h"; sourceTree = "<group>"; };
+		BE12197E1E44E69800567D8D /* Walkthrough.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Walkthrough.playground; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +208,7 @@
 		2E18521D1BDAE5160065F877 /* FavIcon */ = {
 			isa = PBXGroup;
 			children = (
+				BE12197E1E44E69800567D8D /* Walkthrough.playground */,
 				2E0C311F1BDF52C700C88151 /* CheckURLExistsOperation.swift */,
 				2E0C31131BDF4EA200C88151 /* DetectedIcon.swift */,
 				2E0C31191BDF50E300C88151 /* DownloadImageOperation.swift */,
@@ -219,9 +218,7 @@
 				2E30A68B1C04461C001D9583 /* IconExtraction.swift */,
 				2E0C31161BDF50AA00C88151 /* URLRequestOperation.swift */,
 				2E0C31221BDF533100C88151 /* Utils.swift */,
-				2EDF3FA91BE09DA100444B21 /* Walkthrough.playground */,
 				2E1852201BDAE5160065F877 /* Info.plist */,
-				BEF0B3AA1E44175300D0DCC4 /* FavIcon-Bridging-Header.h */,
 			);
 			path = FavIcon;
 			sourceTree = "<group>";
@@ -286,7 +283,6 @@
 			files = (
 				2EA1B2171C3B73CA00478E37 /* HTMLDocument.h in Headers */,
 				2E18521F1BDAE5160065F877 /* FavIcon.h in Headers */,
-				BEF0B3AB1E44175300D0DCC4 /* FavIcon-Bridging-Header.h in Headers */,
 				2EA1B2191C3B73CA00478E37 /* XMLDocument.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -671,7 +667,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.bitserf.FavIcon;
 				PRODUCT_NAME = FavIcon;
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "FavIcon/FavIcon-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -697,7 +692,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.bitserf.FavIcon;
 				PRODUCT_NAME = FavIcon;
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "FavIcon/FavIcon-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 			};

@@ -65,7 +65,7 @@ public enum IconDownloadResult {
     /// - parameter url: The base URL to scan.
     /// - parameter completion: A closure to call when the scan has completed. The closure will be call
     ///                         on the main queue.
-    public static func scan(_ url: URL, completion: @escaping ([DetectedIcon]) -> Void) {
+    @objc public static func scan(_ url: URL, completion: @escaping ([DetectedIcon]) -> Void) {
         let queue = DispatchQueue(label: "org.bitserf.FavIcon", attributes: [])
         var icons: [DetectedIcon] = []
         var additionalDownloads: [URLRequestWithCallback] = []
@@ -154,20 +154,20 @@ public enum IconDownloadResult {
     /// - parameter completion: A closure to call when all download tasks have
     ///                         results available (successful or otherwise). The closure
     ///                         will be called on the main queue.
-    public static func download(_ icons: [DetectedIcon], completion: @escaping ([IconDownloadResult]) -> Void) {
+    @objc public static func download(_ icons: [DetectedIcon], completion: @escaping ([ImageType]) -> Void) {
         let urlSession = urlSessionProvider()
         let operations: [DownloadImageOperation] =
             icons.map { DownloadImageOperation(url: $0.url, session: urlSession) }
 
         executeURLOperations(operations) { results in
-            let downloadResults: [IconDownloadResult] = results.map { result in
+            let downloadResults: [ImageType] = results.flatMap { result in
                 switch result {
                 case .imageDownloaded(_, let image):
-                    return IconDownloadResult.success(image: image)
-                case .failed(let error):
-                    return IconDownloadResult.failure(error: error)
+                  return image;
+                case .failed(_):
+                  return nil;
                 default:
-                    return IconDownloadResult.failure(error: IconError.invalidDownloadResponse)
+                  return nil;
                 }
             }
 
@@ -183,7 +183,7 @@ public enum IconDownloadResult {
     /// - parameter url: The URL to scan for icons.
     /// - parameter completion: A closure to call when all download tasks have results available
     ///                         (successful or otherwise). The closure will be called on the main queue.
-    public static func downloadAll(_ url: URL, completion: @escaping ([IconDownloadResult]) -> Void) {
+    @objc public static func downloadAll(_ url: URL, completion: @escaping ([ImageType]) -> Void) {
         scan(url) { icons in
             download(icons, completion: completion)
         }
@@ -200,14 +200,14 @@ public enum IconDownloadResult {
     /// - parameter completion: A closure to call when the download task has produced results. The closure will
     ///                         be called on the main queue.
     /// - throws: An appropriate `IconError` if downloading was not successful.
-    public static func downloadPreferred(_ url: URL,
-                                         width: Int? = nil,
-                                         height: Int? = nil,
-                                         completion: @escaping (IconDownloadResult) -> Void) throws {
+    @objc public static func downloadPreferred(_ url: URL,
+                                         width: Int,
+                                         height: Int,
+                                         completion: @escaping (ImageType) -> Void) throws {
         scan(url) { icons in
             guard let icon = chooseIcon(icons, width: width, height: height) else {
                 DispatchQueue.main.async {
-                    completion(IconDownloadResult.failure(error: IconError.noIconsDetected))
+                  completion(ImageType());
                 }
                 return
             }
@@ -216,14 +216,14 @@ public enum IconDownloadResult {
 
             let operations = [DownloadImageOperation(url: icon.url, session: urlSession)]
             executeURLOperations(operations) { results in
-                let downloadResults: [IconDownloadResult] = results.map { result in
+                let downloadResults: [ImageType] = results.flatMap { result in
                     switch result {
                     case let .imageDownloaded(_, image):
-                        return IconDownloadResult.success(image: image)
-                    case let .failed(error):
-                        return IconDownloadResult.failure(error: error)
+                      return image;
+                    case .failed(_):
+                      return nil;
                     default:
-                        return IconDownloadResult.failure(error: IconError.invalidDownloadResponse)
+                      return nil;
                     }
                 }
 
@@ -325,7 +325,7 @@ extension FavIcon {
     /// - parameter completion: A closure to call when all download tasks have results available
     ///                         (successful or otherwise). The closure will be called on the main queue.
     /// - throws: An `IconError` if the scan or download failed for some reason.
-    public static func downloadAll(_ url: String, completion: @escaping ([IconDownloadResult]) -> Void) throws {
+    public static func downloadAll(_ url: String, completion: @escaping ([ImageType]) -> Void) throws {
         guard let url = URL(string: url) else { throw IconError.invalidBaseURL }
         downloadAll(url, completion: completion)
     }
@@ -342,9 +342,9 @@ extension FavIcon {
     public static func downloadPreferred(_ url: String,
                                          width: Int? = nil,
                                          height: Int? = nil,
-                                         completion: @escaping (IconDownloadResult) -> Void) throws {
+                                         completion: @escaping (ImageType) -> Void) throws {
         guard let url = URL(string: url) else { throw IconError.invalidBaseURL }
-        try downloadPreferred(url, width: width, height: height, completion: completion)
+        try downloadPreferred(url, width: width!, height: height!, completion: completion)
     }
 }
 
