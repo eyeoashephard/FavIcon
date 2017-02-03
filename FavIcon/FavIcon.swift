@@ -43,7 +43,7 @@ public enum IconDownloadResult {
 }
 
 /// Responsible for detecting all of the different icons supported by a given site.
-public final class FavIcon {
+@objc public final class FavIcon : NSObject {
 
     // swiftlint:disable function_body_length
 
@@ -289,7 +289,7 @@ public final class FavIcon {
         return iconsInPreferredOrder.first!
     }
 
-    fileprivate init () {
+    fileprivate override init () {
     }
 }
 
