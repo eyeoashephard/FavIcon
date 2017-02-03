@@ -72,6 +72,8 @@ func extractHTMLHeadIcons(_ document: HTMLDocument, baseURL: URL) -> [DetectedIc
                     } else {
                         icons.append(DetectedIcon(url: url.absoluteURL, type: .classic))
                     }
+                } else {
+                  icons.append(DetectedIcon(url: url.absoluteURL, type: .classic))
                 }
             case "apple-touch-icon":
                 let sizes = parseHTMLIconSizes(link.attributes["sizes"])

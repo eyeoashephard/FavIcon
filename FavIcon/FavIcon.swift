@@ -248,7 +248,10 @@ public enum IconDownloadResult {
     var filteredIcons = icons;
     if (width > 0 && height > 0) {
       filteredIcons = icons.filter { (icon) -> Bool in
-        return icon.width! <= width  && icon.height! <= height;
+        if let iconWidth = icon.width,
+           let iconHeight = icon.height {
+          return iconWidth <= width  && iconHeight <= height;
+        } else { return true; }
       }
     }
     return chooseIcon(filteredIcons, width: 0, height: 0);
@@ -376,4 +379,5 @@ extension DetectedIcon {
         return nil
     }
 }
+
 

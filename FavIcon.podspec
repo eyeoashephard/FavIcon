@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = 'FavIcon'
-  spec.version      = '2.0'
+  spec.version      = '2.1'
   spec.homepage     = 'https://github.com/nhahn/FavIcon'
   spec.summary      = 'FavIcon is a tiny Swift library for downloading the favicon representing a website.'
   spec.authors      = { 'Leon Breedt' => 'https://github.com/bitserf' }
