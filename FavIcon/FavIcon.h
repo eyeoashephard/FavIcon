@@ -21,6 +21,4 @@ FOUNDATION_EXPORT double OAuth2VersionNumber;
 FOUNDATION_EXPORT const unsigned char OAuth2VersionString[];
 
 #import "HTMLDocument.h"
-#import "HTMLElement.h"
 #import "XMLDocument.h"
-#import "XMLElement.h"

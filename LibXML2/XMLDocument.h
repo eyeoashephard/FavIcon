@@ -19,7 +19,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class XMLElement;
+@interface XMLElement : NSObject
+
+- (instancetype)init NS_UNAVAILABLE;
+
+@property (readonly, nonatomic) NSString *name;
+@property (readonly, nonatomic) NSDictionary<NSString *, NSString *> *attributes;
+@property (readonly, nonatomic) NSArray<XMLElement *> *children;
+
+@end
 
 @interface LBXMLDocument : NSObject
 

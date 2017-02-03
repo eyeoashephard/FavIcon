@@ -19,7 +19,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class HTMLElement;
+@interface HTMLElement : NSObject
+
+- (instancetype)init NS_UNAVAILABLE;
+
+@property (readonly, nonatomic) NSString *name;
+@property (readonly, nonatomic) NSDictionary<NSString *, NSString *> *attributes;
+@property (readonly, nonatomic) NSArray<HTMLElement *> *children;
+
+@end
 
 @interface HTMLDocument : NSObject
 

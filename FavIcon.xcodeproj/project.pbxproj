@@ -45,20 +45,12 @@
 		2E7A93F61BE4BD3F0004C1F3 /* download.json in Resources */ = {isa = PBXBuildFile; fileRef = 2E7A93F31BE4BD3A0004C1F3 /* download.json */; };
 		2EA1B2131C3B73B500478E37 /* HTMLDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E87456A1BE0CB13008E23AC /* HTMLDocument.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2EA1B2171C3B73CA00478E37 /* HTMLDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E87456A1BE0CB13008E23AC /* HTMLDocument.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2EA1B2181C3B73CA00478E37 /* HTMLElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E87457B1BE0CDA7008E23AC /* HTMLElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2EA1B2191C3B73CA00478E37 /* XMLDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E67AB3C1BE0DC5B003EF0A3 /* XMLDocument.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2EA1B21A1C3B73CA00478E37 /* XMLElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E67AB3F1BE0DC5B003EF0A3 /* XMLElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2EA1B21B1C3B73CB00478E37 /* HTMLElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E87457B1BE0CDA7008E23AC /* HTMLElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2EA1B21C1C3B73CB00478E37 /* XMLDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E67AB3C1BE0DC5B003EF0A3 /* XMLDocument.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2EA1B21D1C3B73CB00478E37 /* XMLElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E67AB3F1BE0DC5B003EF0A3 /* XMLElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2EA1B21E1C3B73D600478E37 /* HTMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E87456B1BE0CB13008E23AC /* HTMLDocument.m */; };
-		2EA1B21F1C3B73D600478E37 /* HTMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E87457C1BE0CDA7008E23AC /* HTMLElement.m */; };
 		2EA1B2201C3B73D600478E37 /* XMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E67AB3D1BE0DC5B003EF0A3 /* XMLDocument.m */; };
-		2EA1B2211C3B73D600478E37 /* XMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E67AB401BE0DC5B003EF0A3 /* XMLElement.m */; };
 		2EA1B2221C3B73D700478E37 /* HTMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E87456B1BE0CB13008E23AC /* HTMLDocument.m */; };
-		2EA1B2231C3B73D700478E37 /* HTMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E87457C1BE0CDA7008E23AC /* HTMLElement.m */; };
 		2EA1B2241C3B73D700478E37 /* XMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E67AB3D1BE0DC5B003EF0A3 /* XMLDocument.m */; };
-		2EA1B2251C3B73D700478E37 /* XMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E67AB401BE0DC5B003EF0A3 /* XMLElement.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,16 +140,10 @@
 		2E4681BA1BE490E9008375AB /* DVR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DVR.framework; path = Carthage/Build/Mac/DVR.framework; sourceTree = "<group>"; };
 		2E67AB3C1BE0DC5B003EF0A3 /* XMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDocument.h; sourceTree = "<group>"; };
 		2E67AB3D1BE0DC5B003EF0A3 /* XMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDocument.m; sourceTree = "<group>"; };
-		2E67AB3E1BE0DC5B003EF0A3 /* XMLElement_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLElement_Private.h; sourceTree = "<group>"; };
-		2E67AB3F1BE0DC5B003EF0A3 /* XMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLElement.h; sourceTree = "<group>"; };
-		2E67AB401BE0DC5B003EF0A3 /* XMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLElement.m; sourceTree = "<group>"; };
 		2E7A93E91BE4BA000004C1F3 /* scan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = scan.json; sourceTree = "<group>"; };
 		2E7A93F31BE4BD3A0004C1F3 /* download.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = download.json; sourceTree = "<group>"; };
 		2E87456A1BE0CB13008E23AC /* HTMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLDocument.h; sourceTree = "<group>"; };
 		2E87456B1BE0CB13008E23AC /* HTMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLDocument.m; sourceTree = "<group>"; };
-		2E87457B1BE0CDA7008E23AC /* HTMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLElement.h; sourceTree = "<group>"; };
-		2E87457C1BE0CDA7008E23AC /* HTMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLElement.m; sourceTree = "<group>"; };
-		2E87457F1BE0D183008E23AC /* HTMLElement_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTMLElement_Private.h; sourceTree = "<group>"; };
 		2EDA8AB51BE1E6510043F0F2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2EDF3FA91BE09DA100444B21 /* Walkthrough.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Walkthrough.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -282,14 +268,8 @@
 			children = (
 				2E87456A1BE0CB13008E23AC /* HTMLDocument.h */,
 				2E87456B1BE0CB13008E23AC /* HTMLDocument.m */,
-				2E87457B1BE0CDA7008E23AC /* HTMLElement.h */,
-				2E87457F1BE0D183008E23AC /* HTMLElement_Private.h */,
-				2E87457C1BE0CDA7008E23AC /* HTMLElement.m */,
 				2E67AB3C1BE0DC5B003EF0A3 /* XMLDocument.h */,
 				2E67AB3D1BE0DC5B003EF0A3 /* XMLDocument.m */,
-				2E67AB3E1BE0DC5B003EF0A3 /* XMLElement_Private.h */,
-				2E67AB3F1BE0DC5B003EF0A3 /* XMLElement.h */,
-				2E67AB401BE0DC5B003EF0A3 /* XMLElement.m */,
 			);
 			path = LibXML2;
 			sourceTree = "<group>";
@@ -302,9 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EA1B2171C3B73CA00478E37 /* HTMLDocument.h in Headers */,
-				2EA1B2181C3B73CA00478E37 /* HTMLElement.h in Headers */,
 				2E18521F1BDAE5160065F877 /* FavIcon.h in Headers */,
-				2EA1B21A1C3B73CA00478E37 /* XMLElement.h in Headers */,
 				2EA1B2191C3B73CA00478E37 /* XMLDocument.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,9 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EA1B2131C3B73B500478E37 /* HTMLDocument.h in Headers */,
-				2EA1B21B1C3B73CB00478E37 /* HTMLElement.h in Headers */,
 				2E1852521BDAE5CD0065F877 /* FavIcon.h in Headers */,
-				2EA1B21D1C3B73CB00478E37 /* XMLElement.h in Headers */,
 				2EA1B21C1C3B73CB00478E37 /* XMLDocument.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -514,14 +490,12 @@
 			files = (
 				2E0C31141BDF4EA200C88151 /* DetectedIcon.swift in Sources */,
 				2EA1B2201C3B73D600478E37 /* XMLDocument.m in Sources */,
-				2EA1B2211C3B73D600478E37 /* XMLElement.m in Sources */,
 				2E30A68C1C04461C001D9583 /* IconExtraction.swift in Sources */,
 				2EA1B21E1C3B73D600478E37 /* HTMLDocument.m in Sources */,
 				2E0C31231BDF533100C88151 /* Utils.swift in Sources */,
 				2E0C31201BDF52C700C88151 /* CheckURLExistsOperation.swift in Sources */,
 				2E1852541BDAE7190065F877 /* FavIcon.swift in Sources */,
 				2E0C311A1BDF50E300C88151 /* DownloadImageOperation.swift in Sources */,
-				2EA1B21F1C3B73D600478E37 /* HTMLElement.m in Sources */,
 				2E0C31171BDF50AA00C88151 /* URLRequestOperation.swift in Sources */,
 				2E0C311D1BDF511200C88151 /* DownloadTextOperation.swift in Sources */,
 			);
@@ -542,14 +516,12 @@
 			files = (
 				2E0C31151BDF4EA200C88151 /* DetectedIcon.swift in Sources */,
 				2EA1B2241C3B73D700478E37 /* XMLDocument.m in Sources */,
-				2EA1B2251C3B73D700478E37 /* XMLElement.m in Sources */,
 				2E30A68D1C04CF85001D9583 /* IconExtraction.swift in Sources */,
 				2EA1B2221C3B73D700478E37 /* HTMLDocument.m in Sources */,
 				2E0C31241BDF533100C88151 /* Utils.swift in Sources */,
 				2E0C31211BDF52C700C88151 /* CheckURLExistsOperation.swift in Sources */,
 				2E1852551BDAE7AF0065F877 /* FavIcon.swift in Sources */,
 				2E0C311B1BDF50E300C88151 /* DownloadImageOperation.swift in Sources */,
-				2EA1B2231C3B73D700478E37 /* HTMLElement.m in Sources */,
 				2E0C31181BDF50AA00C88151 /* URLRequestOperation.swift in Sources */,
 				2E0C311E1BDF511200C88151 /* DownloadTextOperation.swift in Sources */,
 			);
