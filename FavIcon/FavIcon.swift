@@ -203,7 +203,7 @@ public enum IconDownloadResult {
     @objc public static func downloadPreferred(_ url: URL,
                                          width: Int,
                                          height: Int,
-                                         completion: @escaping (ImageType) -> Void) {
+                                         completion: @escaping (ImageType?) -> Void) {
         scan(url) { icons in
             guard let icon = chooseIcon(icons, width: width, height: height) else {
                 DispatchQueue.main.async {
@@ -230,7 +230,7 @@ public enum IconDownloadResult {
                 assert(downloadResults.count > 0)
 
                 DispatchQueue.main.async {
-                    completion(downloadResults.first!)
+                    completion(downloadResults.first)
                 }
             }
         }
@@ -343,7 +343,7 @@ extension FavIcon {
     @objc public static func downloadPreferred(_ url: String,
                                          width: Int,
                                          height: Int,
-                                         completion: @escaping (ImageType) -> Void) throws {
+                                         completion: @escaping (ImageType?) -> Void) throws {
         guard let url = URL(string: url) else { throw IconError.invalidBaseURL }
         try downloadPreferred(url, width: width, height: height, completion: completion)
     }
