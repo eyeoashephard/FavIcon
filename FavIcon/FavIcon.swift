@@ -227,8 +227,6 @@ public enum IconDownloadResult {
                     }
                 }
 
-                assert(downloadResults.count > 0)
-
                 DispatchQueue.main.async {
                     completion(downloadResults.first)
                 }
