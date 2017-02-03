@@ -137,7 +137,7 @@ public enum IconDownloadResult {
         let checkTouchIcon = urlRequestOperation(checkTouchIconOperation) { result in
           if case let .success(actualURL) = result {
             queue.sync {
-              icons.append(DetectedIcon(url: actualURL, type: .appleIOSWebClip))
+              icons.append(DetectedIcon(url: actualURL, type: .appleIOSWebClip, width: 60, height: 60))
             }
           }
         }
@@ -243,7 +243,17 @@ public enum IconDownloadResult {
             }
         }
     }
+  
+  @objc public static func chooseLargestIconSmallerThan(_ icons: [DetectedIcon], width: Int, height: Int) -> DetectedIcon? {
+    var filteredIcons = icons;
+    if (width > 0 && height > 0) {
+      filteredIcons = icons.filter { (icon) -> Bool in
+        return icon.width! <= width  && icon.height! <= height;
+      }
+    }
+    return chooseIcon(filteredIcons, width: 0, height: 0);
 
+  }
     // MARK: Test hooks
 
     typealias URLSessionProvider = (Void) -> URLSession
