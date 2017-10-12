@@ -257,6 +257,20 @@ public enum IconDownloadResult {
     return chooseIcon(filteredIcons, width: 0, height: 0);
 
   }
+  
+  @objc public static func choseIconLargerThan(_ icons: [DetectedIcon], width: Int, height: Int) -> DetectedIcon? {
+    var filteredIcons = icons;
+    if (width > 0 && height > 0) {
+      filteredIcons = icons.filter { (icon) -> Bool in
+        if let iconWidth = icon.width,
+          let iconHeight = icon.height {
+          return iconWidth >= width  && iconHeight >= height;
+        } else { return true; }
+      }
+    }
+    return chooseIcon(filteredIcons, width: 0, height: 0);
+    
+  }
     // MARK: Test hooks
 
     typealias URLSessionProvider = (Void) -> URLSession
