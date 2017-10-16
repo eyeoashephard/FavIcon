@@ -52,6 +52,7 @@ public enum IconDownloadResult {
     ///
     /// It will do the following to determine possible icons that can be used:
     ///
+    /// - Check whether or not `/apple-touch-icon.png` exists.
     /// - Check whether or not `/favicon.ico` exists.
     /// - If the base URL returns an HTML page, parse the `<head>` section and check for `<link>`
     ///   and `<meta>` tags that reference icons using Apple, Microsoft and Google
@@ -121,6 +122,15 @@ public enum IconDownloadResult {
             }
         }
 
+        let touchIconURL = URL(string: "/apple-touch-icon.png", relativeTo: url as URL)!.absoluteURL
+        let checkTouchIconOperation = CheckURLExistsOperation(url: touchIconURL, session: urlSession)
+        let checkTouchIcon = urlRequestOperation(checkTouchIconOperation) { result in
+            if case let .success(actualURL) = result {
+                queue.sync {
+                    icons.append(DetectedIcon(url: actualURL, type: .appleIOSWebClip, width: 160, height: 160))
+                }
+            }
+        }
 
         let favIconURL = URL(string: "/favicon.ico", relativeTo: url as URL)!.absoluteURL
         let checkFavIconOperation = CheckURLExistsOperation(url: favIconURL, session: urlSession)
@@ -132,17 +142,7 @@ public enum IconDownloadResult {
             }
         }
       
-        let touchIconURL = URL(string: "/apple-touch-icon.png", relativeTo: url as URL)!.absoluteURL
-        let checkTouchIconOperation = CheckURLExistsOperation(url: touchIconURL, session: urlSession)
-        let checkTouchIcon = urlRequestOperation(checkTouchIconOperation) { result in
-          if case let .success(actualURL) = result {
-            queue.sync {
-              icons.append(DetectedIcon(url: actualURL, type: .appleIOSWebClip, width: 60, height: 60))
-            }
-          }
-        }
-
-        executeURLOperations([downloadHTML, checkFavIcon, checkTouchIcon]) {
+        executeURLOperations([downloadHTML, checkTouchIcon, checkFavIcon]) {
             if additionalDownloads.count > 0 {
                 executeURLOperations(additionalDownloads) {
                     DispatchQueue.main.async {
