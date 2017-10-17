@@ -294,13 +294,13 @@ public enum IconDownloadResult {
         guard icons.count > 0 else { return nil }
       
         let iconsInPreferredOrder = icons.sorted { left, right in
-            if width! > 0 || height! > 0  {
-                let preferredWidth = width, preferredHeight = height,
-                widthLeft = left.width, heightLeft = left.height,
-                widthRight = right.width, heightRight = right.height;
+            if let preferredWidth = width, let preferredHeight = height,
+                let widthLeft = left.width, let heightLeft = left.height,
+                let widthRight = right.width, let heightRight = right.height {
+                
                 // Which is closest to preferred size?
-                let deltaA = abs(widthLeft! - preferredWidth!) * abs(heightLeft! - preferredHeight!)
-                let deltaB = abs(widthRight! - preferredWidth!) * abs(heightRight! - preferredHeight!)
+                let deltaA = abs(widthLeft - preferredWidth) * abs(heightLeft - preferredHeight)
+                let deltaB = abs(widthRight - preferredWidth) * abs(heightRight - preferredHeight)
                 return deltaA < deltaB
             } else {
                 if let areaLeft = left.area, let areaRight = right.area {
