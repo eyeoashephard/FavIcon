@@ -380,7 +380,7 @@ extension FavIcon {
                                          height: Int,
                                          completion: @escaping (ImageType?) -> Void) throws {
         guard let url = URL(string: url) else { throw IconError.invalidBaseURL }
-        try downloadPreferred(url, width: width, height: height, completion: completion)
+        downloadPreferred(url, width: width, height: height, completion: completion)
     }
 }
 
