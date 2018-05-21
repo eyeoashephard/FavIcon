@@ -712,6 +712,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 35309703202E80B6006B32D9 /* FavIcon.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
@@ -789,6 +790,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 35309703202E80B6006B32D9 /* FavIcon.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
